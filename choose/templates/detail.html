@@ -12,4 +12,9 @@
     </div>
 </div>
 <hr>
+<h1>여기는 comment create 입니다.</h1>
+<hr>
+{% for comment in question.comment_set.all %}
+    <div>{{comment.answer}} - {{comment.comment}}</div>
+{% endfor %}
 {% endblock %}
