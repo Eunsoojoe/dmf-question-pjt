@@ -6,6 +6,7 @@
         <p>{{question.id}}</p>
         <p>{{question.title}}</p>
         <a href="{% url 'choose:detail' id=question.id %}">link</a>
+        <a href="{% url 'choose:delete' id=question.id %}">delete</a>
         <hr>
 
     {% endfor %}

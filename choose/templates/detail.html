@@ -1,6 +1,9 @@
 {% extends 'base.html'%}
 
 {% block body %}
+<p>{{percent_A}}</p>
+<p>{{percent_B}}</p>
+
 <div>
     <div>
         <h5>{{question.title}}</h5>
@@ -12,9 +15,22 @@
     </div>
 </div>
 <hr>
-<h1>여기는 comment create 입니다.</h1>
+
+<form action="{% url 'choose:comment_create' id=question.id %}" id="myForm">
+    <!-- {% csrf_token %} -->
+    <select name="answer" id="myForm">
+        <option value="A">A</option>
+        <option value="B">B</option>
+    </select>
+    <label for="comment">내용</label>
+    <input type="text" id="comment" name="comment">
+    <input type="submit" value="제출">
+</form>
+
 <hr>
+<h1>Answers</h1>
 {% for comment in question.comment_set.all %}
     <div>{{comment.answer}} - {{comment.comment}}</div>
+    <a href="{% url 'choose:comment_delete' id=question.id comment_id=comment.id%}">delete</a>
 {% endfor %}
 {% endblock %}

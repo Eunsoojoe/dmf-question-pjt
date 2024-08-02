@@ -9,4 +9,8 @@ class Question(models.Model):
 class Comment(models.Model):
     answer = models.TextField()
     comment = models.TextField()
-    question = models.ForeignKey(Question, on_delete=models.CASCADE) 
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+class Cocomment(models.Model):
+    cocomment = models.TextField()
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
