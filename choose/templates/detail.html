@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<div>
+    <div>
+        <h5>{{question.title}}</h5>
+        <p>A:{{question.answer_A}}</p>
+    </div>
+    <div>
+        <h5>{{question.title}}</h5>
+        <p>B:{{question.answer_B}}</p>
+    </div>
+</div>
+<hr>
+{% endblock %}

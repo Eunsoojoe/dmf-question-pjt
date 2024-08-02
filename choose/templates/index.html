@@ -5,7 +5,7 @@
     {% for question in questions %}
         <p>{{question.id}}</p>
         <p>{{question.title}}</p>
-        <a href="">link</a>
+        <a href="{% url 'choose:detail' id=question.id %}">link</a>
         <hr>
 
     {% endfor %}
