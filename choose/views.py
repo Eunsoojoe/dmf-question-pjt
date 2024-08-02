@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Question, Comment
+from .models import Question, Comment, Reply
 from .forms import QuestionForm
 import random
 
@@ -83,3 +83,10 @@ def myRandom(request):
     id = random.choice(range(1,number+1))
 
     return redirect('choose:detail', id=id)
+
+def reply(request, question_id, id):
+    reply = Reply() 
+    reply.reply = request.GET.get('reply')
+    reply.comment_id = id
+    reply.save()
+    return redirect('choose:detail',id=question_id)

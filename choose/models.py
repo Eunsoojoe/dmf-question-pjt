@@ -11,6 +11,6 @@ class Comment(models.Model):
     comment = models.TextField()
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
-class Cocomment(models.Model):
-    cocomment = models.TextField()
+class Reply(models.Model):
+    reply = models.TextField()
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
